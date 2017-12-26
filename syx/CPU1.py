@@ -2,6 +2,7 @@
 from __future__ import print_function
 from collections import OrderedDict
 import pprint
+
 ''' Return the information in /proc/CPUinfo
 
 as a dictionary in the following format:
@@ -11,23 +12,23 @@ CPU_info['proc0']={...}
 CPU_info['proc1']={...}
 
 '''
+
+
 def CPUinfo():
-
-
-    CPUinfo=OrderedDict()
-    procinfo=OrderedDict()
+    CPUinfo = OrderedDict()
+    procinfo = OrderedDict()
 
     nprocs = 0
     with open('/proc/CPUinfo') as f:
         for line in f:
             if not line.strip():
 
-# end of one processor
+                # end of one processor
                 CPUinfo['proc%s' % nprocs] = procinfo
-                nprocs=nprocs+1
+                nprocs = nprocs + 1
 
-# Reset
-                procinfo=OrderedDict()
+                # Reset
+                procinfo = OrderedDict()
             else:
                 if len(line.split(':')) == 2:
                     procinfo[line.split(':')[0].strip()] = line.split(':')[1].strip()
@@ -37,7 +38,7 @@ def CPUinfo():
     return CPUinfo
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     CPUinfo = CPUinfo()
     for processor in CPUinfo.keys():
         print(CPUinfo[processor]['model name'])

@@ -5,7 +5,7 @@
 #
 # @cm
 # def ref():
-#     counter = _G["counter"]
+# counter = _G["counter"]
 #     yield _G
 #     _G["counter"] = counter
 #
@@ -28,7 +28,7 @@ from random import randrange
 # tup = (randrange(-100,100) for _ in range(10))
 # print sorted(tup,key = abs)
 #
-lst = list(zip("hello world i am who".split(),[randrange(1,10) for _ in range(5)]))
+lst = list(zip("hello world i am who".split(), [randrange(1, 10) for _ in range(5)]))
 # print lst
 # print sorted(lst ,key = lambda item : item[0])
 
@@ -46,10 +46,12 @@ class P(object):
     def __init__(self, w, n):
         self.w = w
         self.n = n
+
     def __repr__(self):
         return "{}=>{}".format(self.w, self.n)
 
+
 ps = [P(i[0], i[1]) for i in lst]
 
-print(sorted(ps, key=attrgetter('n'),reverse = True))
-print(sorted(ps, key=attrgetter('n'),reverse = False))
+print(sorted(ps, key=attrgetter('n'), reverse=True))
+print(sorted(ps, key=attrgetter('n'), reverse=False))

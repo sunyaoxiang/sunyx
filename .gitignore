@@ -210,6 +210,7 @@ hs_err_pid*
 ### Example user template
 
 # IntelliJ project files
+/selenium_test/Firefox_default
 .idea
 *.iml
 out

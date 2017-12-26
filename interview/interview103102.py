@@ -2,10 +2,13 @@
 
 def inc():
     x = [0]
+
     def inner():
         x[0] += 1
         print x[0]
+
     return inner
+
 
 inc1 = inc()
 inc2 = inc()

@@ -9,7 +9,6 @@ import cStringIO
 import base64
 
 
-
 host = "imap.datayes.com";
 port = "143";
 # port = "995";
@@ -20,21 +19,21 @@ conn.login(usr, pwd)
 conn.select("INBOX", readonly=True)
 # t = conn.list()
 # for t in conn.list()[1]:
-#     print t
+# print t
 # t = conn.select("Notes", readonly=True)
 # print t[1][0]
 # for i in conn.search(None, "ALL")[1]:
 #     # print conn.fetch(i)
 # typ,data = conn.fetch(t[1][0], "(RFC822)")
 try:
-    typ,data = conn.search(None, 'ALL')
-    print typ,data
+    typ, data = conn.search(None, 'ALL')
+    print typ, data
     for msg_dataz in data[0].split():
         print msg_dataz
-        type,msg_data=conn.fetch(msg_dataz,'(RFC822)')
+        type, msg_data = conn.fetch(msg_dataz, '(RFC822)')
         msg = email.message_from_string(msg_data[0][1])
         # print msg._payload.get_payload(decode=True)
-        print msg._headers[0][1]#邮件发送人
+        print msg._headers[0][1]  #邮件发送人
         for part in msg.walk():
             if not part.is_multipart():
                 content = part.get_payload(decode=True)
@@ -43,6 +42,6 @@ try:
 
 
 
-except Exception,e:
+except Exception, e:
     print e;
     print "no email exist!"

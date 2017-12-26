@@ -1,14 +1,15 @@
 # coding: utf-8
 import io;
 import sys;
+
 reload(sys);
 sys.setdefaultencoding("utf8")
 import json
 
 a = io.open("user.txt", encoding="utf8")
 for i in a:
-    i = i.replace("\r","")
-    i = i.replace("\n","")
+    i = i.replace("\r", "")
+    i = i.replace("\n", "")
     try:
         try:
             t = json.loads(i)

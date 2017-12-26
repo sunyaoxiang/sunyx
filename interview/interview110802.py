@@ -22,7 +22,7 @@
 from enum import Enum, IntEnum, unique
 
 # try:
-#     @unique
+# @unique
 #     class WEEKDAY(Enum):
 #         MON = 1
 #         TUS = 2

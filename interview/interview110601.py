@@ -4,7 +4,7 @@
 # import time
 #
 # def _sum(x, y):
-#     print("Compute {} + {}...".format(x, y))
+# print("Compute {} + {}...".format(x, y))
 #     time.sleep(2.0)
 #     return x+y
 # def compute_sum(x, y):
@@ -95,10 +95,12 @@ import time
 #     _lock.release()
 
 
-from threading import Lock,Thread
+from threading import Lock, Thread
+
 _base_lock = Lock()
-_pos_lock  = Lock()
+_pos_lock = Lock()
 _base = 1
+
 
 def _sum(x, y):
     # Time 1
@@ -107,6 +109,8 @@ def _sum(x, y):
         with _pos_lock:
             result = x + y
     return result
+
+
 def _minus(x, y):
     # Time 0
     with _pos_lock:
@@ -115,8 +119,9 @@ def _minus(x, y):
             result = x - y
     return result
 
-print _sum(1,2)
-print _minus(3,4)
-print _sum(5,6)
+
+print _sum(1, 2)
+print _minus(3, 4)
+print _sum(5, 6)
 
 

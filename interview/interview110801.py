@@ -7,7 +7,7 @@
 
 
 # class Int:
-#     ctype = "Class::Int"
+# ctype = "Class::Int"
 #     def __init__(self, val):
 #         self._val = val
 #     def __getattribute__(self, name):

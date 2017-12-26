@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 def print_directory_contents(sPath):
     import os
+
     for sChild in os.listdir(sPath):
-        sChildPath = os.path.join(sPath,sChild)
+        sChildPath = os.path.join(sPath, sChild)
         if os.path.isdir(sChildPath):
             print_directory_contents(sChildPath)
         else:
             print sChildPath
+
 
 # dir = "D:\\Python"
 # print_directory_contents(dir)
@@ -23,7 +25,7 @@ def print_directory_contents(sPath):
 
 #
 # def f(x,l=[]):
-#     for i in range(x):
+# for i in range(x):
 #         l.append(i*i)
 #     print l
 #
@@ -43,37 +45,46 @@ def print_directory_contents(sPath):
 class A(object):
     def go(self):
         print "go A go!"
+
     def stop(self):
         print "stop A stop!"
+
     def pause(self):
         raise Exception("Not Implemented")
+
 
 class B(A):
     def go(self):
         super(B, self).go()
         print "go B go!"
 
+
 class C(A):
     def go(self):
         super(C, self).go()
         print "go C go!"
+
     def stop(self):
         super(C, self).stop()
         print "stop C stop!"
 
-class D(B,C):
-    def go(self):
 
+class D(B, C):
+    def go(self):
         super(D, self).go()
         print "go D go!"
+
     def stop(self):
         super(D, self).stop()
         print "stop D stop!"
+
     def pause(self):
         print "wait D wait!"
 
-class E(B,C):
+
+class E(B, C):
     pass
+
 
 a = A()
 b = B()

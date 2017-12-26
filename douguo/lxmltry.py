@@ -1,5 +1,5 @@
-#coding=utf-8
-import urllib,urllib2,re
+# coding=utf-8
+import urllib, urllib2, re
 import lxml
 from lxml import html
 from lxml import etree
@@ -12,9 +12,9 @@ now = datetime.datetime.now()
 urllist = []
 url = 'http://www.douguo.com/top/remenyonghu/'
 urllist.append(url)
-for i in [30,60,90]:
+for i in [30, 60, 90]:
     url = 'http://www.douguo.com/top/remenyonghu/'
-    url = url + '/'+str(i)
+    url = url + '/' + str(i)
     #print url
     urllist.append(url)
 
@@ -43,9 +43,9 @@ for i in [30,60,90]:
 for u in urllist:
     request = urllib2.Request(u)
     request.add_header('Cache-Control', 'max-age=0')
-    request.add_header('User-Agent','Mozilla/5.0 (Windows NT 6.1; WOW64; rv:44.0) Gecko/20100101 Firefox/44.0')
-    request.add_header('Accept','text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8')
-    request.add_header('Accept-Language','zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3')
+    request.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:44.0) Gecko/20100101 Firefox/44.0')
+    request.add_header('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8')
+    request.add_header('Accept-Language', 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3')
     response = urllib2.urlopen(request).read()
     #print response
     htmlSource = etree.HTML(response)
@@ -65,23 +65,23 @@ for u in urllist:
 
         funs = i.xpath('./div')[0].text
         # fan_nums = ur'(\d*)粉丝'#get uid
-        fan_nums = ur'(\d*)粉丝'#get uid
-        ffan_nums = re.findall(re.compile(fan_nums),funs)
+        fan_nums = ur'(\d*)粉丝'  #get uid
+        ffan_nums = re.findall(re.compile(fan_nums), funs)
 
-        uurl =ixpath.attrib['href']
+        uurl = ixpath.attrib['href']
         #print uurl
 
-        uid = r'http://www.douguo.com/u/u(\d*).html'#get uid
-        fuid = re.findall(re.compile(uid),ixpath.attrib['href'])
+        uid = r'http://www.douguo.com/u/u(\d*).html'  #get uid
+        fuid = re.findall(re.compile(uid), ixpath.attrib['href'])
         #print fuid
 
         hot_rank = i.xpath('./span')[0].text
         if hot_rank == None:
             hot_rank = 0
         else:
-            hot_rank =int(hot_rank)
+            hot_rank = int(hot_rank)
 
-        print int(fuid[0]),name,uurl,'1',int(ffan_nums[0]),hot_rank,now,now
+        print int(fuid[0]), name, uurl, '1', int(ffan_nums[0]), hot_rank, now, now
 
         #print span.text
         # conn = MySQLdb.connect(
@@ -99,7 +99,7 @@ for u in urllist:
         # cur.close()
 
 
-# INSERT INTO topuser
-# (uid,NAME,uurl,STATUS,fan_nums,hot_rank,created_time,updated_time)
-# VALUES
-# (40064469316319,'姜叔的日食记','http://www.douguo.com/u/u40064469316319.html',1,14277,0,'2016-02-22 15:08:10.066000','2016-02-22 15:08:10.066000')
+        # INSERT INTO topuser
+        # (uid,NAME,uurl,STATUS,fan_nums,hot_rank,created_time,updated_time)
+        # VALUES
+        # (40064469316319,'姜叔的日食记','http://www.douguo.com/u/u40064469316319.html',1,14277,0,'2016-02-22 15:08:10.066000','2016-02-22 15:08:10.066000')

@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
 import sys
+
 reload(sys)
 sys.setdefaultencoding('utf8')
 import pyodbc
 import urllib
 import datetime
 
+
 def updatas(datas):
     DBfile = ur"D:/Python/sunyx/access/cache-收益率曲线明细数据（历史）.mdb"
-    conn = pyodbc.connect(r"Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=" + DBfile + ";Uid=;Pwd=;",charset="utf8")
+    conn = pyodbc.connect(r"Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=" + DBfile + ";Uid=;Pwd=;",
+                          charset="utf8")
     cursor = conn.cursor()
     for dat in datas:
         SQL = '''Insert INTO [excelparams] (\
@@ -57,10 +60,11 @@ def updatas(datas):
         )
         # print selsql
         # print SQL
-        cursor.execute(SQL,selsql)
+        cursor.execute(SQL, selsql)
     cursor.commit()
     cursor.close()
     conn.close()
+
 
 datas = []
 
@@ -164,32 +168,32 @@ p_step_list = [
 ]
 
 n = 1
-begin = datetime.date(2002,1,4)
-end = datetime.date(2017,3,13)
-for i in range((end - begin).days+1):
+begin = datetime.date(2002, 1, 4)
+end = datetime.date(2017, 3, 13)
+for i in range((end - begin).days + 1):
     day = begin + datetime.timedelta(days=i)
-    p_startdate = str(day).replace("-","")
+    p_startdate = str(day).replace("-", "")
     for p_qxmc in p_qxmc_list:
-        p_qxmc_urlcode =  urllib.quote(p_qxmc.encode('gbk'))
+        p_qxmc_urlcode = urllib.quote(p_qxmc.encode('gbk'))
         for p_step_l in p_step_list:
             params = "function_id=106015&p_startdate=" + p_startdate + "&p_qxmc=" + p_qxmc_urlcode + "&p_qxfl=&p_step=" + p_step_l + "&p_flag_year=1"
             paramstext = u"开始日期:" + p_startdate + u" 曲线名称:" + p_qxmc + u" 计算步长（年）:" + p_step_l
             datas.append({
-                "id":str(n),
-                "username":username,
-                "function_id":function_id,
-                "function_name":function_name,
-                "func_id":func_id,
-                "style_type":style_type,
-                "params":params,
-                "paramstext":paramstext,
-                "periodicity":periodicity,
-                "periods":periods,
+                "id": str(n),
+                "username": username,
+                "function_id": function_id,
+                "function_name": function_name,
+                "func_id": func_id,
+                "style_type": style_type,
+                "params": params,
+                "paramstext": paramstext,
+                "periodicity": periodicity,
+                "periods": periods,
             })
             if len(datas) >= 1000:
                 updatas(datas)
                 datas = []
                 print n
-            n = n +1
+            n = n + 1
 
 updatas(datas)

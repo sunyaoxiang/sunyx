@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
+
 reload(sys)
 sys.setdefaultencoding('utf8')
 import pyodbc
@@ -103,58 +104,59 @@ p_qxmc_list = [
     # u"中债资产支持证券收益率曲线(A＋)"
 ]
 p_qxfl_list = [
-    ["0",u"到期"],
-    ["1",u"即期"],
-    ["2",u"远期的到期(N=1)"],
-    ["3",u"远期的到期(N=2)"],
-    ["4",u"远期的到期(N=3)"],
-    ["5",u"远期的到期(N=4)"],
-    ["6",u"远期的到期(N=5)"],
-    ["7",u"远期的到期(K=1)"],
-    ["8",u"远期的到期(K=2)"],
-    ["9",u"远期的到期(K=3)"],
-    ["10",u"远期的到期(K=4)"],
-    ["11",u"远期的到期(K=5)"],
-    ["12",u"远期的即期(N=1)"],
-    ["13",u"远期的即期(N=2)"],
-    ["14",u"远期的即期(N=3)"],
-    ["15",u"远期的即期(N=4)"],
-    ["16",u"远期的即期(N=5)"],
-    ["17",u"远期的即期(K=1)"],
-    ["18",u"远期的即期(K=2)"],
-    ["19",u"远期的即期(K=3)"],
-    ["20",u"远期的即期(K=4)"],
-    ["21",u"远期的即期(K=5)"]
+    ["0", u"到期"],
+    ["1", u"即期"],
+    ["2", u"远期的到期(N=1)"],
+    ["3", u"远期的到期(N=2)"],
+    ["4", u"远期的到期(N=3)"],
+    ["5", u"远期的到期(N=4)"],
+    ["6", u"远期的到期(N=5)"],
+    ["7", u"远期的到期(K=1)"],
+    ["8", u"远期的到期(K=2)"],
+    ["9", u"远期的到期(K=3)"],
+    ["10", u"远期的到期(K=4)"],
+    ["11", u"远期的到期(K=5)"],
+    ["12", u"远期的即期(N=1)"],
+    ["13", u"远期的即期(N=2)"],
+    ["14", u"远期的即期(N=3)"],
+    ["15", u"远期的即期(N=4)"],
+    ["16", u"远期的即期(N=5)"],
+    ["17", u"远期的即期(K=1)"],
+    ["18", u"远期的即期(K=2)"],
+    ["19", u"远期的即期(K=3)"],
+    ["20", u"远期的即期(K=4)"],
+    ["21", u"远期的即期(K=5)"]
 ]
 
-    # begin = datetime.date(2014,6,1)
-    # end = datetime.date(2014,6,7)
-    # for i in range((end - begin).days+1):
-    #         day = begin + datetime.timedelta(days=i)
-    #         strday = str(day).replace("-","")
+# begin = datetime.date(2014,6,1)
+# end = datetime.date(2014,6,7)
+# for i in range((end - begin).days+1):
+# day = begin + datetime.timedelta(days=i)
+#         strday = str(day).replace("-","")
 n = 1000
 for p_qxmc in p_qxmc_list:
     for p_qxfl_l in p_qxfl_list:
-        p_qxmc_urlcode =  urllib.quote(p_qxmc.encode('gbk'))
-        params = "function_id=106013&p_startdate=20020104&p_enddate=20150313&p_qxmc=" + p_qxmc_urlcode + "&p_qxfl=" + p_qxfl_l[0] + "&p_flag_year=1"
+        p_qxmc_urlcode = urllib.quote(p_qxmc.encode('gbk'))
+        params = "function_id=106013&p_startdate=20020104&p_enddate=20150313&p_qxmc=" + p_qxmc_urlcode + "&p_qxfl=" + \
+                 p_qxfl_l[0] + "&p_flag_year=1"
         paramstext = u"开始日期:20020104 结束日期:20150313 曲线名称:" + p_qxmc + u" 曲线类型:" + p_qxfl_l[1]
         datas.append({
-            "id":str(n),
-            "username":username,
-            "function_id":function_id,
-            "function_name":function_name,
-            "func_id":func_id,
-            "style_type":style_type,
-            "params":params,
-            "paramstext":paramstext,
-            "periodicity":periodicity,
-            "periods":periods,
+            "id": str(n),
+            "username": username,
+            "function_id": function_id,
+            "function_name": function_name,
+            "func_id": func_id,
+            "style_type": style_type,
+            "params": params,
+            "paramstext": paramstext,
+            "periodicity": periodicity,
+            "periods": periods,
         })
-        n = n +1
-
+        n = n + 1
 
 DBfile = ur"D:/Python/sunyx/access/cache-标准待偿期收益率曲线数据-14k.mdb"
-conn = pyodbc.connect(r"Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=" + DBfile + ";Uid=;Pwd=;",charset="utf8")
+conn = pyodbc.connect(r"Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=" + DBfile + ";Uid=;Pwd=;",
+                      charset="utf8")
 cursor = conn.cursor()
 for dat in datas:
     SQL = '''Insert INTO [excelparams] (\
@@ -203,7 +205,7 @@ for dat in datas:
     )
     # print selsql
     # print SQL
-    cursor.execute(SQL,selsql)
+    cursor.execute(SQL, selsql)
 cursor.commit()
 cursor.close()
 conn.close()

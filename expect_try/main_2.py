@@ -1,5 +1,6 @@
-#coding=utf8
+# coding=utf8
 import sys;
+
 reload(sys);
 sys.setdefaultencoding("utf8")
 import pexpect
@@ -31,11 +32,10 @@ file_in = '/home/yin.zhang/Bigdata_check'
 # file_name = 'Transaction.csv'
 file_name = 'MarketData.csv'
 
-
-smg =  "scp "+ user+ "@"+ ip +":"+ file_out+ "/" +file_name + " " + file_in+ "/" +file_name
+smg = "scp " + user + "@" + ip + ":" + file_out + "/" + file_name + " " + file_in + "/" + file_name
 print smg
 child = pexpect.spawn(smg)
-child.expect(user+"@"+ip+"'s password:")
+child.expect(user + "@" + ip + "'s password:")
 child.sendline(psd)
 child.interact()
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # def do_func_n(func):
-#     print "start action func:"
+# print "start action func:"
 #     print func()
 #     print "action func end"
 #
@@ -139,8 +139,10 @@
 
 from functools import update_wrapper, partial
 
+
 def my_wraps(wrapped):
     return partial(update_wrapper, wrapped=wrapped)
+
 
 def log(func):
     @my_wraps(func)
@@ -148,7 +150,9 @@ def log(func):
         print("INFO: Starting {}".format(func.__name__))
         func()
         print("INFO: Finishing {}".format(func.__name__))
+
     return wraper
+
 
 @log
 def run():
@@ -156,5 +160,7 @@ def run():
     Docs' of run
     """
     print("Running run...")
+
+
 print(run.__name__)
 print(run.__doc__)

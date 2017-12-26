@@ -5,7 +5,7 @@ from heapq import *
 
 # heap = []
 # for i in range(3,0,-1):
-#     heappush(
+# heappush(
 #         heap,i
 #     )
 # # heappush(heap,3)

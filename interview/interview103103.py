@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 # script reverse.py
-#!/usr/bin/env python
+# !/usr/bin/env python
 import sys
+
 print sys.argv
 
 # print '{0:.2f}'.format(1.0/3)

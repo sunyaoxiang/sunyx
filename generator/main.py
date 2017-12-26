@@ -18,5 +18,6 @@ def my_gen():
     print('This is printed at last, n= ', n)
     yield n
 
+
 for item in my_gen():
     print(item)

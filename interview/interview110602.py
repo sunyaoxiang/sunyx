@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # def jump_range(upper):
-#     index = 0
+# index = 0
 #     while index < upper:
 #         jump = yield index
 #         if jump is None:

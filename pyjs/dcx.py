@@ -16,7 +16,7 @@ service_args.append('--cookies-file=%s' % "--cookies-file=c:\\users\\yaoxiang.su
 try:
     browser = webdriver.PhantomJS(service_args=service_args)
 except Exception, e:
-   print e
+    print e
 
 url = "http://index.baidu.com/"
 browser.get(url)

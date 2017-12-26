@@ -11,7 +11,7 @@
 
 
 # print("{}\n{}\n{}\n{}\n{}".format(
-#     "hello, WORLD".upper(),
+# "hello, WORLD".upper(),
 #     "hello, WORLD".lower(),
 #     "hello, WORLD".swapcase(),
 #     "hello, WORLD".capitalize(),
@@ -42,7 +42,7 @@
 # print "i think {0[0]} {1} is {0[2]} ".format(li,"cache")
 
 
-li = {'test':'test ', 'format':'format' ,'good':'good'}
+li = {'test': 'test ', 'format': 'format', 'good': 'good'}
 print "i think {test} {good} is {good} ".format(**li)
 print "i think {0[test]} {0[good]} is {0[good]} ".format(li)
 #
