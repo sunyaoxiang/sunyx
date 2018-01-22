@@ -28,7 +28,7 @@ if __name__ == '__main__':
     print u'类型帮助信息: ', Son.__doc__
     # 类型名称
     print u'类型名称:', Son.__name__
-    #类型所继承的基类
+    # 类型所继承的基类
     print u'类型所继承的基类:', Son.__bases__
     #类型字典
     print u'类型字典:', Son.__dict__

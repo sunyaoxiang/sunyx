@@ -29,7 +29,7 @@ for x in range(2010, 2011):
 
         # class test():
         # def __init__(self,name = "self name"):
-        #         self.name = name
+        # self.name = name
         #     def printname(self,name = "self name"):
         #         if name is None:
         #             name = self.name

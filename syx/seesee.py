@@ -48,7 +48,7 @@ def getUrlByCode(code):
 
 
 # 输入stock代码输出对应的价格信息
-#code = raw_input('code: ')
+# code = raw_input('code: ')
 codeDict = {
     'sh': 'shang hai zq',
     'sz': 'shen zheng zq',

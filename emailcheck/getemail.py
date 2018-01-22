@@ -23,7 +23,7 @@ conn.select("INBOX", readonly=True)
 # t = conn.select("Notes", readonly=True)
 # print t[1][0]
 # for i in conn.search(None, "ALL")[1]:
-#     # print conn.fetch(i)
+# # print conn.fetch(i)
 # typ,data = conn.fetch(t[1][0], "(RFC822)")
 try:
     typ, data = conn.search(None, 'ALL')

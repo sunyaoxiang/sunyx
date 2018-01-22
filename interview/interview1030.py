@@ -26,7 +26,7 @@ def print_directory_contents(sPath):
 #
 # def f(x,l=[]):
 # for i in range(x):
-#         l.append(i*i)
+# l.append(i*i)
 #     print l
 #
 # f(2)

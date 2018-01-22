@@ -9,8 +9,8 @@ conn = MySQLdb.connect(
     passwd='root',
     db='monitor',
 )
-cur = conn.cursor()  #游标
-#cur.execute("insert into monitor.process_log (processname,created_time) VALUES ('dpo_001.py',now())")
+cur = conn.cursor()  # 游标
+# cur.execute("insert into monitor.process_log (processname,created_time) VALUES ('dpo_001.py',now())")
 #now = datetime.datetime.now()
 #print now
 sqli = "select * from process_log "

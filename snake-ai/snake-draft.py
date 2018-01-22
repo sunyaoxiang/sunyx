@@ -90,7 +90,7 @@ def board_reset(psnake, psize, pboard):
 
 # def board_refresh(pfood, psnake, pboard):
 # board_changed = True
-#     found = False
+# found = False
 #     while board_changed: # 一直更新board，直到每个格子上的数都对应到达食物的步数，不能再改变为止
 #         board_changed = False
 #         for i in xrange(FIELD_SIZE):

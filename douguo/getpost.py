@@ -8,7 +8,7 @@ urllist.append(url)
 for i in [30, 60, 90]:
     url = 'http://www.douguo.com/top/remenyonghu/'
     url = url + '/' + str(i)
-    #print url
+    # print url
     urllist.append(url)
 
 for u in urllist:
@@ -18,7 +18,7 @@ for u in urllist:
     request.add_header('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8')
     request.add_header('Accept-Language', 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3')
     response = urllib2.urlopen(request).read()
-    #print response
+    # print response
     uurl = r'<a href="(http://www.douguo.com/u/u\d*.html)" target='  #get uurl
     fuurl = re.findall(re.compile(uurl), response)
 

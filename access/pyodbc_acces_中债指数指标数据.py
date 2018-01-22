@@ -108,7 +108,7 @@ for year in range(2002, 2018):
             })
             # if len(datas) >= 100:
             # updatas(datas,DBfile)
-            #     datas = []
+            # datas = []
             #     print n
             n = n + 1
         updatas(datas, DBfile)

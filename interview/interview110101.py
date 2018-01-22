@@ -12,7 +12,7 @@
 
 # print("{}\n{}\n{}\n{}\n{}".format(
 # "hello, WORLD".upper(),
-#     "hello, WORLD".lower(),
+# "hello, WORLD".lower(),
 #     "hello, WORLD".swapcase(),
 #     "hello, WORLD".capitalize(),
 #     "hello, WORLD".title()))

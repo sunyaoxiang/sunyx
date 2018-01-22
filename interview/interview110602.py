@@ -2,7 +2,7 @@
 
 # def jump_range(upper):
 # index = 0
-#     while index < upper:
+# while index < upper:
 #         jump = yield index
 #         if jump is None:
 #             jump = 1

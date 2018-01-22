@@ -6,7 +6,7 @@ from heapq import *
 # heap = []
 # for i in range(3,0,-1):
 # heappush(
-#         heap,i
+# heap,i
 #     )
 # # heappush(heap,3)
 # # heappush(heap,2)

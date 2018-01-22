@@ -17,7 +17,7 @@ def draw_trend(data_file, object_type):
     lines = data.readlines()
     data.close()
     lable_list = lines[0].split(None)
-    #data={"lable_name":[x,y1,y2],x:[1,2,4],y1:[2,4],y3:[4,5]}
+    # data={"lable_name":[x,y1,y2],x:[1,2,4],y1:[2,4],y3:[4,5]}
     lable_name = []
     data_list = []
 

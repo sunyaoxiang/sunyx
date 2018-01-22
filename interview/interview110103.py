@@ -6,7 +6,7 @@
 # @cm
 # def ref():
 # counter = _G["counter"]
-#     yield _G
+# yield _G
 #     _G["counter"] = counter
 #
 # with ref() as r1, ref() as r2:

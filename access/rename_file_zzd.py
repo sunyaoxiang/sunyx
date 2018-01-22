@@ -25,7 +25,7 @@ def scan_files(directory, prefix=None, postfix=None):
 
 # for file_name in file_names:
 # # print file_name
-#     # print file_name[0],file_name[1]
+# # print file_name[0],file_name[1]
 #     try:
 #         os.rename(file_name[0],file_name[1])
 #     except:

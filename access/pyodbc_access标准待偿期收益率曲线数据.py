@@ -132,7 +132,7 @@ p_qxfl_list = [
 # end = datetime.date(2014,6,7)
 # for i in range((end - begin).days+1):
 # day = begin + datetime.timedelta(days=i)
-#         strday = str(day).replace("-","")
+# strday = str(day).replace("-","")
 n = 1000
 for p_qxmc in p_qxmc_list:
     for p_qxfl_l in p_qxfl_list:

@@ -15,7 +15,7 @@ type = sys.getfilesystemencoding()  # 关键
 now = datetime.datetime.now()
 
 urllist = []
-#url = 'http://info.stcn.com/companydata/parOtherListedCompany.jsp?currentPage=2&startYear=2015&startMonth=03-31&issort=qmcgbl&ASCFlag=1'
+# url = 'http://info.stcn.com/companydata/parOtherListedCompany.jsp?currentPage=2&startYear=2015&startMonth=03-31&issort=qmcgbl&ASCFlag=1'
 url = 'http://info.stcn.com/companydata/parOtherListedCompany.jsp'
 
 

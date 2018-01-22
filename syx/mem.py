@@ -16,7 +16,7 @@ def meminfo():
 
 
 if __name__ == '__main__':
-    #print(meminfo())
+    # print(meminfo())
 
     meminfo = meminfo()
     print('Total memory: {0}'.format(meminfo['MemTotal']))

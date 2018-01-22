@@ -25,6 +25,6 @@ class RemoteShell:
         expect eof
         exit'''
         os.system("echo '%s' > scp_put.cmd" % (
-        scp_put % (os.path.expanduser(local_path), self.user, self.host, remote_path, self.pwd, self.pwd)))
+            scp_put % (os.path.expanduser(local_path), self.user, self.host, remote_path, self.pwd, self.pwd)))
         os.system('expect scp_put.cmd')
         os.system('rm scp_put.cmd')

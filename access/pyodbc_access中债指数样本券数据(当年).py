@@ -122,7 +122,7 @@ for year in range(2017, 2018):
                         "periods": periods,
                     })
                     # if len(datas) >= 100:
-                    #     updatas(datas,DBfile)
+                    # updatas(datas,DBfile)
                     #     datas = []
                     #     print n
                     n = n + 1

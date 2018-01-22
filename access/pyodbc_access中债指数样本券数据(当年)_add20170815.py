@@ -118,7 +118,7 @@ try:
                     "periods": periods,
                 })
                 # if len(datas) >= 100:
-                #     updatas(datas,DBfile)
+                # updatas(datas,DBfile)
                 #     datas = []
                 #     print n
                 n = n + 1
